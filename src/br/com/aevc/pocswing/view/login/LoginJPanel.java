@@ -27,12 +27,17 @@ public class LoginJPanel extends JPanel {
 		int showConfirmDialog = JOptionPane.showConfirmDialog(null, this.loginFormJPanel, "Login",
 				JOptionPane.OK_CANCEL_OPTION);
 		if (showConfirmDialog == JOptionPane.OK_OPTION) {
+			
 			ControllerResult<Boolean> doLogin = this.loginController.doLogin(
 					this.loginFormJPanel.getUsername().getText(),
 					new String(this.loginFormJPanel.getPassword().getPassword()));
+			
 			if (!doLogin.getResult()) {
-				JOptionPane.showMessageDialog(null, "Não foi possível autenticar com o usuário e senha submetidos.");
+				JOptionPane.showMessageDialog(null, doLogin.getMessage());
+			}else {
+				JOptionPane.showMessageDialog(null, doLogin.getMessage());
 			}
+			
 		} else {
 			System.exit(0);
 		}
