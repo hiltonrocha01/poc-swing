@@ -4,6 +4,7 @@ import javax.swing.BorderFactory;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+import br.com.aevc.pocswing.controller.ControllerResult;
 import br.com.aevc.pocswing.controller.LoginController;
 
 /**
@@ -22,14 +23,20 @@ public class LoginJPanel extends JPanel {
 		super();
 		this.loginFormJPanel = new LoginFormJPanel();
 		setBorder(BorderFactory.createEtchedBorder());
+		
 		int showConfirmDialog = JOptionPane.showConfirmDialog(null, this.loginFormJPanel, "Login",
 				JOptionPane.OK_CANCEL_OPTION);
 		if (showConfirmDialog == JOptionPane.OK_OPTION) {
-			this.loginController.doLogin(this.loginFormJPanel.getUsername().getText(),
+			ControllerResult<Boolean> doLogin = this.loginController.doLogin(
+					this.loginFormJPanel.getUsername().getText(),
 					new String(this.loginFormJPanel.getPassword().getPassword()));
+			if (!doLogin.getResult()) {
+				JOptionPane.showMessageDialog(null, "Não foi possível autenticar com o usuário e senha submetidos.");
+			}
 		} else {
 			System.exit(0);
 		}
+		
 
 	}
 

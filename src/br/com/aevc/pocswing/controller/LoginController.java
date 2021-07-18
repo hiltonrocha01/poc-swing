@@ -6,9 +6,10 @@ package br.com.aevc.pocswing.controller;
  */
 public class LoginController {
 
-	public void doLogin(String text, String string) {
-		System.out.println(text);
-		System.out.println(string);
+	public ControllerResult<Boolean> doLogin(String usuario, String senha) {
+		System.out.println(usuario);
+		System.out.println(senha);
+		return new ControllerResult<Boolean>(false, String.format("Usuário %s autenticado com sucesso:", usuario));
 	}
 
 }
