@@ -6,9 +6,13 @@ public class Usuario {
 	private Integer idade;
 	private String matricula;
 	
-	private String senha;
+	protected String senha;
 	
-	public Usuario() {
+	public Usuario(String nome, Integer idade, String matricula, String senha) {
+		this.nome = nome;
+		this.idade = idade;
+		this.matricula = matricula;
+		this.senha = senha;
 	}
 	
 	public void autenticarse() {
@@ -16,10 +20,8 @@ public class Usuario {
 	}
 	
 	public void fazerLogoff() {
-		
 	}
-	
-	
+
 	public String getNome() {
 		return nome;
 	}
@@ -43,10 +45,7 @@ public class Usuario {
 	public void setMatricula(String matricula) {
 		this.matricula = matricula;
 	}
-
-	public void setSenha(String senha) {
-		this.senha = senha;
-	}
-
+	
+	
 	
 }

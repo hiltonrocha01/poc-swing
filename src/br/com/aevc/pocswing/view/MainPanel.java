@@ -5,7 +5,7 @@ import java.awt.BorderLayout;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
-import br.com.aevc.pocswing.view.login.LoginJPanel;
+import br.com.aevc.pocswing.view.login.LoginJOptionPaneLoader;
 import br.com.aevc.pocswing.view.menu.TopJMenuBar;
 
 /**
@@ -19,7 +19,8 @@ class MainPanel extends JPanel {
 	public MainPanel() {
 		super(new BorderLayout());
 		add(new TopJMenuBar(), BorderLayout.PAGE_START);
-		add(new LoginJPanel());
 		setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
+		
+		LoginJOptionPaneLoader.showLoginDialog(this);
 	}
 }

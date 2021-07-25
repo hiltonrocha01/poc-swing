@@ -9,6 +9,11 @@ import java.nio.file.Files;
  *
  */
 public class LoginController {
+	
+	public static final LoginController INSTANCE = new LoginController();
+	
+	private LoginController() {
+	}
 
 	public ControllerResult<Boolean> doLogin(String usuario, String senha) {
 
@@ -28,6 +33,10 @@ public class LoginController {
 			return new ControllerResult<Boolean>(false, String.format("Usuário %s não encontrado.", usuario));
 		}
 
+	}
+	
+	public static LoginController getInstance() {
+		return INSTANCE;
 	}
 
 }
