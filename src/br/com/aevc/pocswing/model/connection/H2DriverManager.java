@@ -15,7 +15,9 @@ public class H2DriverManager {
 	}
 
 	public static void main(String[] args) throws SQLException {
+		
 		Connection connection = H2DriverManager.getConnection();
+		
 		sampleDML(connection);
 		sampleDDL(connection);
 	}
@@ -26,15 +28,17 @@ public class H2DriverManager {
 
 		try {
 			stmt = connection.createStatement();
-			rs = stmt.executeQuery("SELECT foo FROM bar");
+			rs = stmt.executeQuery("SELECT nome FROM usuario");
 
 			// or alternatively, if you don't know ahead of time that
 			// the query will be a SELECT...
 
-			if (stmt.execute("SELECT foo FROM bar")) {
+			if (stmt.execute("SELECT nome FROM usuario")) {
 				rs = stmt.getResultSet();
 			}
-
+			String nome = rs.getString("nome");
+			
+			
 			// Now do something with the ResultSet ....
 		} catch (SQLException ex) {
 			// handle any errors

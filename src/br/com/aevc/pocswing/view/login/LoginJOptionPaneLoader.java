@@ -3,6 +3,7 @@ package br.com.aevc.pocswing.view.login;
 import java.awt.Component;
 
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 import br.com.aevc.pocswing.controller.ControllerResult;
 import br.com.aevc.pocswing.controller.LoginController;
@@ -17,6 +18,8 @@ public class LoginJOptionPaneLoader {
 
 	public static void showLoginDialog(Component component) {
 		LoginFormJPanel loginFormJPanel = new LoginFormJPanel();
+		
+		JPanel jPanel = new JPanel();
 
 		int showConfirmDialog = JOptionPane.showConfirmDialog(component, loginFormJPanel, "Login",
 				JOptionPane.OK_CANCEL_OPTION);
