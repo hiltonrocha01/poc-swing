@@ -31,7 +31,7 @@ public class LoginFormJPanel extends JPanel {
 		return usernameJTextField;
 	}
 
-	public JPasswordField getjPasswordField() {
+	public JPasswordField getJPasswordField() {
 		return jPasswordField;
 	}
 	

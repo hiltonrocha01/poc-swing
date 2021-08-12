@@ -1,5 +1,9 @@
 package br.com.aevc.pocswing.view.menu;
 
+import br.com.aevc.pocswing.controller.LoginController;
+import br.com.aevc.pocswing.view.login.LoginJOptionPaneLoader;
+import br.com.aevc.pocswing.view.user.UserRegistrationJPanel;
+
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -22,12 +26,24 @@ class FileJMenu extends JMenu {
 				new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/resources/gear.png")))));
 		addSeparator();
 
+		JMenuItem addUser = new JMenuItem("Registrar");
+		addUser.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				new UserRegistrationJPanel();
+			}
+		});
+		add(addUser);
+		addSeparator();
+
+
 		JMenuItem sairJMenuItem = new JMenuItem("Sair");
 		sairJMenuItem.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				System.exit(0);
+				LoginController.logoff();
+				LoginJOptionPaneLoader.showLoginDialog(null);
 			}
 		});
 		add(sairJMenuItem);

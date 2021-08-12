@@ -14,6 +14,7 @@ public class ViewLoader {
 		if (mainView == null) {
 			mainView = new MainView("Main Panel");
 			mainView.add(new MainPanel());
+			mainView.validate();
 		}
 
 	}

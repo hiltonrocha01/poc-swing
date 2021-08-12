@@ -17,9 +17,8 @@ public class H2DriverManager {
 	public static void main(String[] args) throws SQLException {
 		
 		Connection connection = H2DriverManager.getConnection();
-		
+		//sampleDDL(connection);
 		sampleDML(connection);
-		sampleDDL(connection);
 	}
 
 	public static void sampleDML(Connection connection) {

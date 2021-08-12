@@ -6,20 +6,13 @@ public class Usuario {
 	private Integer idade;
 	private String matricula;
 	
-	protected String senha;
+	private String senha;
 	
 	public Usuario(String nome, Integer idade, String matricula, String senha) {
-		this.nome = nome;
-		this.idade = idade;
-		this.matricula = matricula;
-		this.senha = senha;
-	}
-	
-	public void autenticarse() {
-		
-	}
-	
-	public void fazerLogoff() {
+		setNome(nome);
+		setIdade(idade);
+		setMatricula(matricula);
+		setSenha(senha);
 	}
 
 	public String getNome() {
@@ -27,7 +20,24 @@ public class Usuario {
 	}
 
 	public void setNome(String nome) {
-		this.nome = nome;
+
+		if (!nome.isEmpty() && !nome.isBlank()) {
+			String[] palavras = nome.split("\\s");
+			StringBuilder nomeBuilder = new StringBuilder();
+
+			for (String palavra : palavras) {
+				if(palavra.length() > 0) {
+					palavra = palavra.trim();
+					String primeiraLetra = palavra.substring(0, 1);
+					String restanteDaPalavra = palavra.substring(1);
+					nomeBuilder.append(primeiraLetra.toUpperCase()).append(restanteDaPalavra.toLowerCase()).append(" ");
+				}
+			}
+
+			this.nome = nomeBuilder.toString().trim();
+		} else {
+			this.nome = nome;
+		}
 	}
 
 	public Integer getIdade() {
@@ -45,7 +55,22 @@ public class Usuario {
 	public void setMatricula(String matricula) {
 		this.matricula = matricula;
 	}
-	
-	
-	
+
+	public String getSenha() {
+		return this.senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+
+	@Override
+	public String toString() {
+		return "Usuario{" +
+				"nome='" + nome + '\'' +
+				", idade=" + idade +
+				", matricula='" + matricula + '\'' +
+				", senha='" + senha + '\'' +
+				'}';
+	}
 }

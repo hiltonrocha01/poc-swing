@@ -19,7 +19,7 @@ class MainPanel extends JPanel {
 	public MainPanel() {
 		super(new BorderLayout());
 		add(new TopJMenuBar(), BorderLayout.PAGE_START);
-		setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
+		setBorder(BorderFactory.createEmptyBorder(0, 0, 5, 0));
 		
 		LoginJOptionPaneLoader.showLoginDialog(this);
 	}
