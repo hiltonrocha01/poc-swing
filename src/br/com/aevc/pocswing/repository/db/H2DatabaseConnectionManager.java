@@ -10,7 +10,7 @@ import java.sql.SQLException;
  */
 abstract public class H2DatabaseConnectionManager {
 
-    public static final String TABLE_NAME = "usuario";
+    public static final String TABLE_NAME = "usuarios";
     private static final String H2_CONNECTION_URL = "jdbc:h2:~/poc-swing";
 
 
